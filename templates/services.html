@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% block title %}Services | Vihaan Digital Seva{% endblock %}
+
+{% block content %}
+<div class="services-container">
+    <h1>Our Services</h1>
+    <p class="subtitle">Select a service below to visit the official website.</p>
+
+    <div class="service-list">
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/Aadhar.png') }}" alt="Aadhaar service portal" loading="lazy">
+            <h3>Aadhaar</h3>
+            <p>Official UIDAI portal for Aadhaar services</p>
+            <a href="https://uidai.gov.in/" target="_blank">Visit</a>
+        </div>
+
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/pan.jpeg') }}" alt="PAN Card portal" loading="lazy">
+            <h3>PAN Card</h3>
+            <p>Apply and manage your PAN online</p>
+            <a href="https://www.incometax.gov.in/iec/foportal/" target="_blank">Visit</a>
+        </div>
+
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/votecard.png') }}" alt="Voter ID portal" loading="lazy">
+            <h3>Voter ID</h3>
+            <p>Register and check your voter details</p>
+            <a href="https://www.nvsp.in/" target="_blank">Visit</a>
+        </div>
+
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/irctc.png') }}" alt="IRCTC Booking portal" loading="lazy">
+            <h3>IRCTC Booking</h3>
+            <p>Book train tickets online easily</p>
+            <a href="https://www.irctc.co.in/" target="_blank">Visit</a>
+        </div>
+
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/csc.jpg') }}" alt="CSC Services portal" loading="lazy">
+            <h3>CSC Services</h3>
+            <p>Access government services digitally</p>
+            <a href="https://digitalseva.csc.gov.in/" target="_blank">Visit</a>
+        </div>
+
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/Vahan.jpeg') }}" alt="Vehicle Services portal" loading="lazy">
+            <h3>Vehicle Services</h3>
+            <p>Check vehicle registration and services</p>
+            <a href="https://parivahan.gov.in/" target="_blank">Visit</a>
+        </div>
+
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/eshram.jpeg') }}" alt="e-Shram portal" loading="lazy">
+            <h3>e-Shram</h3>
+            <p>Official e-Shram portal for workers</p>
+            <a href="https://eshram.gov.in/indexmain" target="_blank">Visit</a>
+        </div>
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/pf.jpg') }}" alt="e-Shram portal" loading="lazy">
+            <h3>e-Shram</h3>
+            <p>PF workers</p>
+            <a href=https://www.epfindia.gov.in/site_en/For_Employers.php target="_blank">Visit</a>
+        </div>
+
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/udyam.png') }}" alt="Udyam Registration portal" loading="lazy">
+            <h3>Udyam Registration</h3>
+            <p>Register your business online</p>
+            <a href="https://udyamregistration.gov.in/UdyamRegistration.aspx" target="_blank">Visit</a>
+        </div>
+    </div>
+</div>
+
+<style>
+.services-container {
+    text-align: center;
+    margin: 30px auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+.services-container h1 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    justify-items: center;
+}
+
+.service-item {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.service-item img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.service-item h3 {
+    color: #007bff;
+    margin-bottom: 8px;
+}
+
+.service-item p {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.service-item a {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.service-item a:hover {
+    background: #0056b3;
+}
+
+/* ✅ Mobile responsive */
+@media (max-width: 600px) {
+    .services-container {
+        padding: 15px;
+    }
+    .service-item {
+        width: 100%;
+    }
+}
+</style>
+{% endblock %}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title if title else "Vihaan Digital Seva" }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #007bff, #00c6ff);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: #ffffff1a;
+            backdrop-filter: blur(6px);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        nav .logo {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #00c6ff;
+        }
+
+        .container {
+            flex: 1;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer {
+            background: #ffffff1a;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+            color: #f0f0f0;
+            border-top: 1px solid #ffffff33;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #fff;
+            color: #007bff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            background: #007bff;
+            color: #fff;
+        }
+
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: #ffffff20;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ffffff40;
+        }
+
+        th {
+            background-color: #ffffff33;
+        }
+
+        td {
+            color: #f8f8f8;
+        }
+
+        .total {
+            font-weight: bold;
+            background-color: #ffffff22;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            table {
+                width: 95%;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Vihaan Digital Seva</div>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('services') }}">Services</a></li>
+            <li><a href="{{ url_for('products') }}">Products</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            <li><a href="{{ url_for('dashboard')}}">dashboard</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Vihaan Digital Seva. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

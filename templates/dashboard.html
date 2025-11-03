@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | Vihaan Digital Seva{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <div class="welcome-card">
+        <h1>Welcome to Vihaan Digital Seva</h1>
+        <p>Daily Service Collections Overview</p>
+        <a href="{{ url_for('services') }}" class="btn">Our Services</a>
+        <a href="{{ url_for('contact') }}" class="btn">Contact Us</a>
+    </div>
+
+    <h2>Today's Collections</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Amount (₹)</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in collections %}
+            <tr>
+                <td>{{ c[1] }}</td>
+                <td>{{ c[2] }}</td>
+                <td>{{ c[3] }}</td>
+                <td><a href="{{ url_for('delete_collection', id=c[0]) }}" class="delete-btn">Delete</a></td>
+            </tr>
+            {% endfor %}
+            <tr class="total">
+                <td colspan="2"><strong>Total Amount Collected</strong></td>
+                <td colspan="2"><strong>₹{{ total }}</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="add-form">
+        <h3>Add New Collection</h3>
+        <form action="{{ url_for('add_collection') }}" method="POST">
+            <input type="text" name="description" placeholder="Service Name / Description" required>
+            <input type="number" name="amount" placeholder="Amount (₹)" required>
+            <button type="submit" class="btn">Add</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2025 Vihaan Digital Seva. All rights reserved.</p>
+    </footer>
+</div>
+
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #007bff, #00c6ff);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-container {
+    text-align: center;
+    margin-top: 60px;
+    padding: 20px;
+}
+
+.welcome-card {
+    background: #ffffff1a;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 450px;
+    margin: 0 auto 40px auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-card h1 {
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.welcome-card p {
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    background: #fff;
+    color: #007bff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+    margin: 8px;
+}
+
+.btn:hover {
+    background: #007bff;
+    color: #fff;
+}
+
+table {
+    width: 85%;
+    margin: 0 auto 30px auto;
+    border-collapse: collapse;
+    background-color: #ffffff20;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ffffff40;
+}
+
+th {
+    background-color: #ffffff33;
+}
+
+td {
+    color: #f8f8f8;
+}
+
+.total {
+    background-color: #ffffff22;
+    font-weight: bold;
+}
+
+.delete-btn {
+    color: #ff4d4d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.delete-btn:hover {
+    color: #ff0000;
+}
+
+.add-form {
+    background: #ffffff1a;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.add-form input {
+    width: 80%;
+    padding: 10px;
+    margin: 8px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+}
+
+.add-form button {
+    margin-top: 10px;
+}
+
+/* ✅ Responsive */
+@media (max-width: 600px) {
+    table {
+        width: 100%;
+        font-size: 14px;
+    }
+    .add-form, .welcome-card {
+        width: 90%;
+    }
+}
+</style>
+{% endblock %}

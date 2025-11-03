@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}Products & Services | Vihaan Digital Seva{% endblock %}
+
+{% block content %}
+<div class="services-container">
+    <h1>Our Products & Rates</h1>
+    <p class="subtitle">Explore our available digital and document services below.</p>
+
+    <div class="service-list">
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/Aadhar.png') }}" alt="Aadhaar Update">
+            <h3>Aadhaar Address Update</h3>
+            <p>₹150 per update</p>
+        </div>
+
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/Aadhar.png') }}" alt="Mobile Update">
+            <h3>Mobile Number Update</h3>
+            <p>₹125 per update</p>
+        </div>
+
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/xerox.jpg') }}" alt="Xerox">
+            <h3>Xerox (B/W & Color)</h3>
+            <p>₹2 per page (B/W) | ₹10 (Color)</p>
+        </div>
+
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/Pf.jpg') }}" alt="PF Update">
+            <h3>PF Withdraw & Password Update</h3>
+            <p>₹150</p>
+        </div>
+
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/pan.jpeg') }}" alt="PAN Card">
+            <h3>PAN Card</h3>
+            <p>₹300 per creation/update</p>
+        </div>
+
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/votecard.png') }}" alt="Voter ID">
+            <h3>Voter ID</h3>
+            <p>₹150 per creation</p>
+        </div>
+
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/job.jpg') }}" alt="Job Applications">
+            <h3>Job Applications</h3>
+            <p>₹100 per application</p>
+        </div>
+
+        <div class="service-item">
+            <img src="{{ url_for('static', filename='images/whatapp.jpg') }}" alt="WhatsApp Print">
+            <h3>WhatsApp Print</h3>
+            <p>₹5 per page</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.services-container {
+    text-align: center;
+    margin: 30px auto;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+.services-container h1 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    justify-items: center;
+}
+
+.service-item {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.service-item img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #007bff;
+}
+
+.service-item h3 {
+    color: #007bff;
+    margin-bottom: 8px;
+}
+
+.service-item p {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+/* ✅ Mobile responsive */
+@media (max-width: 600px) {
+    .services-container {
+        padding: 15px;
+    }
+    .service-item {
+        width: 100%;
+    }
+    .service-item img {
+        width: 75px;
+        height: 75px;
+    }
+}
+</style>
+{% endblock %}
