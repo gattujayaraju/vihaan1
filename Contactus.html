@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vihaan Digital Seva</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            color: #333;
+        }
+        .info {
+            text-align: left;
+            margin-top: 10px;
+        }
+        .map {
+            margin-top: 20px;
+        }
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+            border-radius: 8px;
+        }
+        /* Custom Alert Box Styling */
+        #customAlert {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px gray;
+            text-align: center;
+            border-radius: 8px;
+            z-index: 1000;
+        }
+        #customAlert button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Index Page Content -->
+    <div class="container">
+        <h2>Vihaan Digital Seva</h2>
+        <p>Welcome to our website! Below are our contact details:</p>
+        
+        <!-- Contact Info Section -->
+        <div class="info">
+            <p><strong>Owner:</strong> Medi Suvarna</p>
+            <p><strong>Phone:</strong> +91 8464888458</p>
+            <p><strong>Owner:</strong> Gattu Vinay</p>
+            <p><strong>Phone:</strong> +91 8688064806</p>
+            <p><strong>Email:</strong> vihaandigitalseva9@email.com</p>
+            <p><strong>WhatsApp:</strong> +91 7207017133</p>
+            <p><strong>Address:</strong> Vihaan Digital Seva, Payakapuram, Vijayawada, NTR, Andhra Pradesh, 520015</p>
+        </div>
+        
+        <!-- Google Map Section -->
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d478.0656176274418!2d80.652965!3d16.550064!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35e57c1828201b%3A0x52933de8e759350b!2sVIHAAN%20DIGITAL%20SEVA!5e0!3m2!1sen!2sin!4v1738305630135!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+    <!-- Custom Alert Box -->
+    <div id="customAlert">
+        <p>Welcome to Vihaan Digital Seva! Here are the contact details.</p>
+        <button onclick="closeAlert()">OK</button>
+    </div>
+
+    <script>
+        // Show alert when the page loads
+        window.onload = function() {
+            document.getElementById("customAlert").style.display = "block";
+        };
+
+        // Function to close the alert
+        function closeAlert() {
+            document.getElementById("customAlert").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

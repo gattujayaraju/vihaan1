@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .registration-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .registration-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group input[type="radio"] {
+            width: auto;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+        .registration-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .registration-container button:hover {
+            background-color: #45a049;
+        }
+        @media (max-width: 600px) {
+            .registration-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="userid">UserID</label>
+                <input type="text" id="userid" name="userid" required>
+                <div id="useridError" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                <div id="passwordError" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label for="dob">DOB</label>
+                <input type="date" id="dob" name="dob" required>
+                <div id="dobError" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label>Gender</label>
+                <input type="radio" id="male" name="gender" value="male" required> Male
+                <input type="radio" id="female" name="gender" value="female"> Female
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <select id="state" name="state" required>
+                    <option value="">Select State</option>
+                    <option value="state1">State 1</option>
+                    <option value="state2">State 2</option>
+                    <option value="state3">State 3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Number</label>
+                <input type="number" id="contact" name="contact" required>
+                <div id="contactError" class="error"></div>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var userid = document.getElementById('userid').value;
+            var password = document.getElementById('password').value;
+            var dob = document.getElementById('dob').value;
+            var contact = document.getElementById('contact').value;
+            var today = new Date().toISOString().split('T')[0];
+            var error = false;
+
+            // Validate UserID
+            if (userid.length < 4 || userid.length > 8) {
+                document.getElementById('useridError').innerText = 'UserID must be between 4 and 8 characters.';
+                error = true;
+            } else {
+                document.getElementById('useridError').innerText = '';
+            }
+
+            // Validate Password
+            var passwordError = '';
+            if (password.length < 6) {
+                passwordError = 'Password must be at least 6 characters long.';
+            } else if (!/[A-Z]/.test(password)) {
+                passwordError = 'Password must contain at least one uppercase letter.';
+            } else if (!/[0-9]/.test(password)) {
+                passwordError = 'Password must contain at least one number.';
+            }
+            if (passwordError) {
+                document.getElementById('passwordError').innerText = passwordError;
+                error = true;
+            } else {
+                document.getElementById('passwordError').innerText = '';
+            }
+
+            // Validate DOB
+            if (dob >= today) {
+                document.getElementById('dobError').innerText = 'DOB must be less than today\'s date.';
+                error = true;
+            } else {
+                document.getElementById('dobError').innerText = '';
+            }
+
+            // Validate Contact Number
+            if (contact.length != 10) {
+                document.getElementById('contactError').innerText = 'Contact Number must be exactly 10 digits.';
+                error = true;
+            } else {
+                document.getElementById('contactError').innerText = '';
+            }
+
+            return !error;
+        }
+    </script>
+</body>
+</html>

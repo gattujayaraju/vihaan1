@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vihaan Digital Seva - Admin Login</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fc466b, #3f5efb);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-box {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .login-box h2 {
+      margin-bottom: 25px;
+      color: #333;
+    }
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .login-box button {
+      background: #3f5efb;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .login-box button:hover {
+      background: #5a4dfb;
+    }
+    .login-box .links {
+      margin-top: 15px;
+    }
+    .login-box .links a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+    .login-box .links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>Admin Login</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Admin Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <div class="links">
+      <p><a href="index.html">Back to User Login</a></p>
+    </div>
+  </div>
+
+  <script>
+    // Admin credentials (hardcoded for this example)
+    const adminCredentials = {
+      "Suvarna": "suvarna123",
+      "Vinay": "vinay123",
+      "Jayaraju": "jayaraju123"
+    };
+
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const errorMessage = document.createElement('p');
+      
+      // Clear any previous error message
+      const existingErrorMessage = document.getElementById('error-message');
+      if (existingErrorMessage) {
+        existingErrorMessage.remove();
+      }
+
+      // Check if credentials match
+      if (adminCredentials[username] && adminCredentials[username] === password) {
+        // On successful login, store admin name and redirect to dashboard
+        sessionStorage.setItem("adminName", username);
+        window.location.href = "admin-dashboard.html";
+      } else {
+        // Show error message if credentials are incorrect
+        errorMessage.id = 'error-message';
+        errorMessage.style.color = 'red';
+        errorMessage.textContent = "Invalid username or password.";
+        document.querySelector('.login-box').appendChild(errorMessage);
+      }
+    });
+  </script>
+
+</body>
+</html>
